@@ -1,0 +1,144 @@
+/* Thiết lập cơ bản cho trang web */
+* { box-sizing: border-box; } /* Đã sửa dấu '-' thành '*' để code hoạt động đúng */
+body { 
+  font-family: Arial, Helvetica, sans-serif; 
+  background-color: #fff0f5; /* Nền màu hồng phấn (LavenderBlush) */
+  margin: 0; 
+  color: #5c3a4d; /* Chữ màu tím/hồng đậm để dễ đọc trên nền sáng */
+}
+.container { 
+  width: 95%; 
+  max-width: 850px; 
+  margin: 0 auto; 
+}
+
+/* Header & Footer */
+.site-header { 
+  background-color: #ff9eaa; /* Hồng pastel dịu mắt cho phần đầu trang */
+  color: white; 
+  padding: 20px; 
+  text-align: center; 
+}
+.site-header h1 { margin: 0 0 5px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.site-header p { margin: 0; font-size: 0.9em; opacity: 0.9; }
+
+.site-footer { 
+  text-align: center; 
+  padding: 15px; 
+  background-color: #ffe4e8; /* Nền hồng nhạt cho footer */
+  margin-top: 30px; 
+  font-weight: bold;
+  color: #d81b60; /* Chữ màu hồng đậm nổi bật */
+}
+
+/* Các khung chức năng (Form, Lọc) */
+.add-task-section, .task-list-section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ffc0cb; /* Viền màu hồng nhạt */
+  border-radius: 8px; /* Bo góc mềm mại hơn */
+}
+
+.form-group, .controls-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  background: #fffafa; /* Trắng ánh hồng */
+  padding: 15px;
+  border: 1px solid #ffc0cb;
+  border-radius: 6px;
+}
+
+input, select { 
+  padding: 8px; 
+  border: 1px solid #ffb6c1; 
+  border-radius: 4px; 
+  flex: 1; 
+  color: #5c3a4d;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff9eaa; /* Đổi viền sang hồng đậm hơn khi click vào */
+}
+.error-message { color: #e91e63; font-size: 0.9em; width: 100%; margin-top: 5px; }
+
+/* Các nút bấm (Tone màu Pastel) */
+.btn { 
+  padding: 8px 15px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  color: white; 
+  font-weight: bold;
+}
+.btn-add { background-color: #ff8da1; } /* Màu Thêm: Hồng pastel */
+.btn-toggle { background-color: #b39ddb; } /* Màu Hoàn thành: Tím pastel */
+.btn-delete { background-color: #ff8a80; } /* Màu Xóa: Đỏ cam pastel */
+
+/* Hiển thị danh sách */
+#task-list { 
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0;
+}
+.task-item { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px; 
+  border: 1px solid #ffc0cb; 
+  margin-bottom: 10px; 
+  background: white;
+  border-left: 5px solid #ffb6c1; /* Viền trái màu hồng mặc định */
+  border-radius: 6px;
+}
+
+/* TRẠNG THÁI HOÀN THÀNH */
+.task-item.completed {
+  border-left-color: #a5d6a7; /* Đổi viền sang xanh mạ pastel khi hoàn thành */
+  background-color: #f6fff7;
+}
+.task-item.completed .task-title {
+  color: #9e9e9e; /* Làm mờ chữ đi khi đã xong (Không gạch ngang) */
+}
+
+/* Thông tin chi tiết */
+.task-title { margin: 0 0 5px 0; font-size: 1.1em; color: #d81b60; }
+.task-meta { 
+  display: flex; 
+  gap: 12px; 
+  font-size: 0.9em; 
+  color: #795548; 
+  align-items: center; 
+}
+
+/* Label mức ưu tiên (Màu Pastel) */
+.badge { 
+  padding: 3px 8px; 
+  border-radius: 12px; 
+  color: white; 
+  font-size: 0.8em;
+}
+.badge-high { background-color: #ff8a80; } /* Ưu tiên cao: Đỏ pastel */
+.badge-medium { background-color: #ffb74d; } /* Ưu tiên trung bình: Cam pastel */
+.badge-low { background-color: #64b5f6; } /* Ưu tiên thấp: Xanh pastel */
+
+.status-label { font-style: italic; }
+.task-actions { display: flex; gap: 5px; }
+.empty-msg { text-align: center; color: #ff9eaa; padding: 20px 0; list-style: none; }
+
+/* Responsive khi mở trên điện thoại */
+@media (max-width: 600px) {
+  .task-item { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 12px; 
+  }
+  .task-actions { 
+    width: 100%; 
+    display: flex; 
+  }
+  .task-actions .btn { flex: 1; }
+}
